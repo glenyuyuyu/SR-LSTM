@@ -1,0 +1,210 @@
+# Observed discharge data
+:RedirectToFile   02KB001_Qobs.rvt
+
+# Dummy temperature data
+:Gauge 02KB001
+  :Latitude   45.88714068721054
+  :Longitude  -77.35129260905791
+  :Elevation  158.04523107177974
+:RedirectToFile   dummy_temp.rvt
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.82593399319709
+  :Longitude  -78.5987602479527
+  :Elevation  428.3609900373599
+  :RedirectToFile input/sub3047150.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.8115985002832
+  :Longitude  -78.12032759234452
+  :Elevation  400.8288352272728
+  :RedirectToFile input/sub3044563.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.7834381820166
+  :Longitude  -78.20024487503544
+  :Elevation  422.3572848028449
+  :RedirectToFile input/sub3044950.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.85887849506807
+  :Longitude  -78.50304233543642
+  :Elevation  412.04643523702873
+  :RedirectToFile input/sub3047137.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.67851878855093
+  :Longitude  -78.7830850371915
+  :Elevation  456.31622406388
+  :RedirectToFile input/sub3047014.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.933699950696365
+  :Longitude  -78.37457845280623
+  :Elevation  397.1076973133773
+  :RedirectToFile input/sub3051397.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.86191071297378
+  :Longitude  -77.83277893005486
+  :Elevation  297.2121459694989
+  :RedirectToFile input/sub3049389.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.74832008528538
+  :Longitude  -78.59527392386644
+  :Elevation  436.07813378302416
+  :RedirectToFile input/sub3047020.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.83254133281076
+  :Longitude  -78.34771577482778
+  :Elevation  423.319847933481
+  :RedirectToFile input/sub3044506.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.86709787610645
+  :Longitude  -78.83822814123334
+  :Elevation  430.58623379417935
+  :RedirectToFile input/sub3057127.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.88921508368876
+  :Longitude  -78.16065966643957
+  :Elevation  379.7553729832708
+  :RedirectToFile input/sub3053374.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.773862115835485
+  :Longitude  -78.79533903390909
+  :Elevation  451.83919846009576
+  :RedirectToFile input/sub3047073.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.87031437466075
+  :Longitude  -77.56179828632148
+  :Elevation  234.01519402928096
+  :RedirectToFile input/sub3048805.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.86390393715303
+  :Longitude  -78.6880426080107
+  :Elevation  418.9558192736632
+  :RedirectToFile input/sub3047089.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.89802210837055
+  :Longitude  -78.6122907239398
+  :Elevation  428.6565934065934
+  :RedirectToFile input/sub3047100.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.91816140228628
+  :Longitude  -78.5434574485361
+  :Elevation  421.1886810831873
+  :RedirectToFile input/sub3044966.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.97074725702946
+  :Longitude  -78.49941740300822
+  :Elevation  399.6741231703949
+  :RedirectToFile input/sub3044974.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   46.0064759251824
+  :Longitude  -78.43731396408224
+  :Elevation  362.0923597678917
+  :RedirectToFile input/sub3053185.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   46.029367872390026
+  :Longitude  -78.35898556587678
+  :Elevation  374.9476572393415
+  :RedirectToFile input/sub3054459.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   46.0885462233373
+  :Longitude  -78.3467567099017
+  :Elevation  375.86465934874593
+  :RedirectToFile input/sub3051410.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.98162313639839
+  :Longitude  -78.23106650819153
+  :Elevation  344.7591075347476
+  :RedirectToFile input/sub3052275.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.98289665390554
+  :Longitude  -78.12975217341078
+  :Elevation  307.24696053793383
+  :RedirectToFile input/sub3049465.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.93175429315979
+  :Longitude  -78.01980810533368
+  :Elevation  310.1301475223805
+  :RedirectToFile input/sub3050528.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.9958956127028
+  :Longitude  -77.7451227706955
+  :Elevation  246.3680293896006
+  :RedirectToFile input/sub3048621.rvt  
+:EndGauge
+
+# Subbasin streamflow as precipitation forcing
+:Gauge 02KB001
+  :Latitude   45.88714068721054
+  :Longitude  -77.35129260905791
+  :Elevation  158.04523107177974
+  :RedirectToFile input/sub3048815.rvt  
+:EndGauge

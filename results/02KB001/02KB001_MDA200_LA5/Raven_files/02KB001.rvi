@@ -1,0 +1,23 @@
+# ----------------------------------------------
+# Raven Input file
+# ----------------------------------------------
+:StartDate             1981-01-01 00:00:00
+:EndDate               1981-12-31 00:00:00
+:Method                ORDERED_SERIES                
+:TimeStep              01:00:00                      
+:RunName               02KB001
+
+:CatchmentRoute        ROUTE_DUMP                    
+:Routing               ROUTE_DIFFUSIVE_WAVE                                  
+:PrecipIceptFract      PRECIP_ICEPT_NONE             
+:PotentialMeltMethod   POTMELT_NONE                  
+:SoilModel             SOIL_ONE_LAYER                
+
+:HydrologicProcesses
+  :Precipitation     PRECIP_RAVEN             ATMOS_PRECIP     PONDED_WATER          
+  :Flush             RAVEN_DEFAULT            PONDED_WATER     SURFACE_WATER         
+:EndHydrologicProcesses
+
+:EvaluationMetrics			NASH_SUTCLIFFE    PCT_BIAS    KLING_GUPTA                    
+  
+:EvaluationPeriod TESTING 1981-01-01 1981-12-31

@@ -1,0 +1,5 @@
+# ----------------------------------------------
+# Raven Input file
+# ----------------------------------------------
+
+:UniformInitialConditions SOIL[0] 15            # Initial conditions for the groundwater storage, in mm. DEFAULT 15 mm.

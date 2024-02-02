@@ -1,0 +1,23 @@
+# ----------------------------------------------
+# Raven Input file
+# ----------------------------------------------
+:StartDate             ???          
+:EndDate               ???           
+:Method                ORDERED_SERIES                
+:TimeStep              01:00:00                      
+:RunName               model_name                    
+
+:CatchmentRoute        ROUTE_DUMP                    
+:Routing               ROUTE_DIFFUSIVE_WAVE                                  
+:PrecipIceptFract      PRECIP_ICEPT_NONE             
+:PotentialMeltMethod   POTMELT_NONE                  
+:SoilModel             SOIL_ONE_LAYER                
+
+:HydrologicProcesses
+  :Precipitation     PRECIP_RAVEN             ATMOS_PRECIP     PONDED_WATER          
+  :Flush             RAVEN_DEFAULT            PONDED_WATER     SURFACE_WATER         
+:EndHydrologicProcesses
+
+:EvaluationMetrics			NASH_SUTCLIFFE    PCT_BIAS    KLING_GUPTA                    
+  
+:EvaluationPeriod TESTING ??? ???

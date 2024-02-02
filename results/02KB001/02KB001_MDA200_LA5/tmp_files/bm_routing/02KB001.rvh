@@ -1,0 +1,93 @@
+#----------------------------------------------
+# This is a Raven HRU rvh input file generated
+# by BasinMaker v2.0
+#----------------------------------------------
+:SubBasins
+  :Attributes   NAME  DOWNSTREAM_ID       PROFILE REACH_LENGTH  GAUGED
+  :Units        none           none          none           km    none
+  3047150     sub3047150     3047137     Chn_ZERO_LENGTH     ZERO-     0
+  3044563     sub3044563     3053374     Chn_ZERO_LENGTH     ZERO-     0
+  3044950     sub3044950     3044506     Chn_ZERO_LENGTH     ZERO-     0
+  3047137     sub3047137     3051397     Chn_ZERO_LENGTH     ZERO-     0
+  3047014     sub3047014     3047020     Chn_ZERO_LENGTH     ZERO-     0
+  3051397     sub3051397     3051410     Chn_ZERO_LENGTH     ZERO-     0
+  3049389     sub3049389     3048805     Chn_ZERO_LENGTH     ZERO-     0
+  3047020     sub3047020     3047073     Chn_ZERO_LENGTH     ZERO-     0
+  3044506     sub3044506     3053374     Chn_ZERO_LENGTH     ZERO-     0
+  3057127     sub3057127     3053185     Chn_ZERO_LENGTH     ZERO-     0
+  3053374     sub3053374     3049465     Chn_3053374         6.8424     0
+  3047073     sub3047073     3047089     Chn_3047073         5.5039     0
+  3048805     sub3048805     3048815     Chn_3048805        13.0233     0
+  3047089     sub3047089     3047100     Chn_ZERO_LENGTH     ZERO-     0
+  3047100     sub3047100     3044966     Chn_3047100         3.8619     0
+  3044966     sub3044966     3044974     Chn_ZERO_LENGTH     ZERO-     0
+  3044974     sub3044974     3053185     Chn_3044974         0.4664     0
+  3053185     sub3053185     3054459     Chn_ZERO_LENGTH     ZERO-     0
+  3054459     sub3054459     3051410     Chn_3054459        10.4345     0
+  3051410     sub3051410     3052275     Chn_ZERO_LENGTH     ZERO-     0
+  3052275     sub3052275     3049465     Chn_3052275         3.4184     0
+  3049465     sub3049465     3050528     Chn_3049465         0.5920     0
+  3050528     sub3050528     3048621     Chn_ZERO_LENGTH     ZERO-     0
+  3048621     sub3048621     3048815     Chn_3048621        34.7575     0
+  3048815     sub3048815     -1     Chn_3048815         7.2966     1
+:EndSubBasins
+
+
+:HRUs
+  :Attributes AREA ELEVATION  LATITUDE  LONGITUDE   BASIN_ID  LAND_USE_CLASS  VEG_CLASS   SOIL_PROFILE  AQUIFER_PROFILE   TERRAIN_CLASS   SLOPE   ASPECT
+  :Units       km2         m       deg        deg       none            none       none           none             none            none     deg      deg
+  20         7.5157       400.6549        45.8248       -78.5988     3047150     LAKE     LAKE     LAKE     [NONE]     [NONE]       1.740108     167.5991772676991     
+  21        31.0143       434.3468        45.8263       -78.5988     3047150     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       2.677067     164.53629032258064     
+  3         5.8530       349.3896        45.8357       -78.1099     3044563     LAKE     LAKE     LAKE     [NONE]     [NONE]       2.605831     195.4461241883117     
+  4        44.8294       379.5259        45.8085       -78.1217     3044563     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       6.825753     201.99598029045643     
+  5        10.2340       383.6736        45.7912       -78.1989     3044950     LAKE     LAKE     LAKE     [NONE]     [NONE]       2.156256     175.92772071678323     
+  6        47.1543       397.8432        45.7817       -78.2007     3044950     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       6.877391     172.57042824074074     
+  18        13.5123       386.7327        45.8710       -78.4989     3047137     LAKE     LAKE     LAKE     [NONE]     [NONE]       1.819842     175.3468827351485     
+  19        66.7814       418.8452        45.8563       -78.5039     3047137     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       2.175287     175.95386103633916     
+  10         7.5993       409.1849        45.7244       -78.6818     3047014     LAKE     LAKE     LAKE     [NONE]     [NONE]       1.773847     183.60787671232876     
+  11       191.2178       418.4845        45.6767       -78.7870     3047014     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       7.296649     182.5780357142857     
+  30       128.7900       400.2420        45.9337       -78.3746     3051397     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       2.080891     193.15705128205127     
+  25         7.6746       240.2746        45.8765       -77.8066     3049389     LAKE     LAKE     LAKE     [NONE]     [NONE]       3.140905     194.96067616637325     
+  26       278.4539       291.1159        45.8615       -77.8335     3049389     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       3.956387     193.39243009565857     
+  12        15.6753       404.1982        45.7633       -78.6243     3047020     LAKE     LAKE     LAKE     [NONE]     [NONE]       1.240405     174.16184835829492     
+  13       101.8571       418.9201        45.7460       -78.5908     3047020     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       5.240029     175.6685606060606     
+  1        25.3996       379.0232        45.8609       -78.2530     3044506     LAKE     LAKE     LAKE     [NONE]     [NONE]       1.601359     181.43598973473837     
+  2       269.5919       415.9451        45.8299       -78.3566     3044506     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       3.988013     186.2079417293233     
+  38       445.6470       403.2440        45.8671       -78.8383     3057127     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       5.821814     165.2741717575188     
+  36       100.6321       380.3984        45.8892       -78.1607     3053374     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       2.482361     199.49551792828686     
+  14       243.2674       443.5610        45.7739       -78.7953     3047073     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       2.773797     175.92827431740614     
+  23       313.9717       225.6065        45.8703       -77.5618     3048805     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       3.789024     205.2969977897839     
+  15         9.3346       398.2960        45.8610       -78.6761     3047089     LAKE     LAKE     LAKE     [NONE]     [NONE]       1.442996     179.51915625     
+  16        32.5858       425.3133        45.8647       -78.6916     3047089     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       1.531012     179.67933505639098     
+  17        37.0670       430.7720        45.8980       -78.6123     3047100     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       1.747584     164.16628886010363     
+  7         8.3594       395.1296        45.9315       -78.5518     3044966     LAKE     LAKE     LAKE     [NONE]     [NONE]       1.801092     178.88169126157408     
+  8        53.1133       425.4026        45.9160       -78.5422     3044966     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       2.003690     166.01641132305195     
+  9        21.6622       402.2428        45.9707       -78.4994     3044974     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       2.047436     156.5108989197531     
+  34        26.0023       313.4835        46.0198       -78.4644     3053185     LAKE     LAKE     LAKE     [NONE]     [NONE]       1.989946     191.6139423076923     
+  35       347.0770       374.4300        46.0645       -78.5691     3053185     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       4.934068     179.50461458948612     
+  37        42.4724       378.8211        46.0293       -78.3590     3054459     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       2.075564     181.11577316810346     
+  31         6.3802       280.0602        45.9929       -78.2912     3051410     LAKE     LAKE     LAKE     [NONE]     [NONE]       1.235020     174.20994917168676     
+  32       195.7137       350.9001        46.0872       -78.3469     3051410     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       5.291783     196.52059695719444     
+  33        81.7634       341.4450        45.9817       -78.2310     3052275     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       3.101063     197.903652200489     
+  27        88.0596       300.9360        45.9829       -78.1298     3049465     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       3.317844     214.2571607142857     
+  28         6.0885       222.6979        45.9797       -78.0428     3050528     LAKE     LAKE     LAKE     [NONE]     [NONE]       2.310951     178.40824381510416     
+  29       231.3078       310.0870        45.9305       -78.0192     3050528     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       2.903771     192.79111328125     
+  22       571.3249       234.2906        45.9959       -77.7451     3048621     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       3.626747     208.59492902502802     
+  24        12.1863       121.4178        45.8872       -77.3513     3048815     Landuse_Land_HRU     Veg_Land_HRU     Soil_Land_HRU     [NONE]     [NONE]       5.325766     215.81188538024475     
+:EndHRUs
+:PopulateHRUGroup Lake_HRUs With LANDUSE EQUALS LAKE     
+:RedirectToFile Lakes.rvh
+:SubBasinGroup   Allsubbasins
+       3047150   3044563   3044950   3047137   3047014   3051397   3049389   3047020   3044506   3057127
+       3053374   3047073   3048805   3047089   3047100   3044966   3044974   3053185   3054459   3051410
+       3052275   3049465   3050528   3048621   3048815
+:EndSubBasinGroup   
+# :SBGroupPropertyOverride Allsubbasins   MANNINGS_N 0.001
+# :SBGroupPropertyMultiplier Allsubbasins  MANNINGS_N 1.0
+:SubBasinGroup   AllLakesubbasins
+       3047150   3044563   3044950   3047137   3047014   3049389   3047020   3044506   3047089   3044966
+       3053185   3051410   3050528
+:EndSubBasinGroup   
+# :SBGroupPropertyOverride   AllLakesubbasins   RESERVOIR_CREST_WIDTH 12.0
+# :SBGroupPropertyMultiplier  AllLakesubbasins   RESERVOIR_CREST_WIDTH 1.0
+ 
