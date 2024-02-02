@@ -34,7 +34,7 @@ This example of SR-LSTM only works on the following modules:
 3. Download the gridded static attribute data and place them in corresponding folder under `data/gridded/` and `basinmaker/`
 4. Place streamflow observation CSVs in `data/discharge_obs/`
 5. Place validated NeuralHydrology LSTM model files in `model/trained_model/`
-6. Create a txtfile named as`train_basin.txt` which contains the IDs of basins used to train the LSTM model, and place it in `model/basins/`
+6. Create a txtfile named as`train_basins.txt` which contains the IDs of basins used to train the LSTM model, and place it in `model/basins/`
 7. Edit the input parameters in `scripts/run.py`, and run the script to start the simulation
 
 ## Input parameters with example
