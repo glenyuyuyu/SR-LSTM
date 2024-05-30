@@ -7,7 +7,6 @@ This example of SR-LSTM only works on the following modules:
 
 ## Repository Structure
 - `basinmaker` -- Folder that contains the DEM and HRU data used for BasinMaker routing delineation
-    - `hyd_na_dem_15s.tif` -- DEM data ([HydroSHEDS DEM 15s](https://data.hydrosheds.org/file/hydrosheds-v1-dem/hyd_na_dem_15s.zip))
 - `data` 
     - `discharge_obs/` -- Folder that contains the streamflow/discharge observation CSV files
     - `USGS_discharge_data.ipynb` -- Jupyter notebook to convert the format of USGS data to WSC format
