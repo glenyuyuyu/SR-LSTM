@@ -150,19 +150,10 @@ class Forcing2TimeSeries:
                 configs = yaml.load(inf, Loader=yaml.SafeLoader)
             
             configs['commit_hash'] = None
-            #configs['data_dir'] = '/home/glen/works/sr_lstm/model'
             configs['data_dir'] = str(lstm_root)
-
-            #configs['img_log_dir'] = f'/home/glen/works/sr_lstm/model/trained_model/{model_name}/img_log'
             configs['img_log_dir'] = str(lstm_root) + f'/trained_model/{model_name}/img_log'
-
-            #configs['run_dir'] = f'/home/glen/works/sr_lstm/model/trained_model/{model_name}'
             configs['run_dir'] = str(lstm_root) + f'/trained_model/{model_name}'
-            
-            
             configs['test_basin_file'] = f'basins/{basin_id}_subbasins.txt'
-
-            #configs['train_dir'] = f'/home/glen/works/sr_lstm/model/trained_model/{model_name}/train_data'
             configs['train_dir'] = str(lstm_root) + f'/trained_model/{model_name}/train_data'
             
             with open(file, 'w') as outf:

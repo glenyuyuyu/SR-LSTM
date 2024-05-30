@@ -3,11 +3,27 @@ import os
 
 project_root = Path(os.getcwd())
 
+'''
 # Run on single basin
-os.system(f"python ./scripts/main.py  --watershed 02KB001\
-          --experiment MDA200_LA5\
-          --gauge_lat 45.886111\
-          --gauge_lon -77.315278\
+os.system(f"python ./scripts/main.py  --watershed 08LB020\
+          --predictor_name fraser\
+          --experiment default\
           --start_date 1980-01-01\
-          --end_date 1981-12-31\
-          --save_forcing")
+          --end_date 2018-12-30\
+          --time_shift -8\
+          --save_forcing\
+          --routing_provided")
+'''
+
+# Run on mutiple basins
+basins = ['08JE001','08KA005']
+
+for b in basins:
+    os.system(f"python ./scripts/main.py  --watershed {b}\
+          --predictor_name fraser\
+          --experiment default\
+          --start_date 2000-01-01\
+          --end_date 2018-12-30\
+          --time_shift -8\
+          --save_forcing\
+          --routing_provided")

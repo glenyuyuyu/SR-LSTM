@@ -84,27 +84,35 @@ def cells_weights_collector(basin_id : str, cells_dict : dict, weights_dict : di
 
 
 @functools.lru_cache(maxsize = None)
-def load_one_day_to_csv(basin_id: str, nc_filename: str, cells: tuple, weights: tuple):
-    daily_nc = xr.open_dataset(data_root / 'rdrs_downloads' / nc_filename)
-    one_dim = len(daily_nc['rlat']) * len(daily_nc['rlon'])
-    variables = list(daily_nc.keys())
-    variables.remove('rotated_pole')
-    temp_ts = daily_nc['time'].to_series().reset_index(drop=True)
+def load_forcings_to_csv(basin_id: str, nc_filename: str, cells: tuple, weights: tuple, merged_file: bool):
+    hourly_nc = xr.open_dataset(data_root / 'rdrs_downloads' / nc_filename)
+
+    if merged_file:
+        hourly_nc = hourly_nc.sel(time=slice(start_date, end_date))
+
+    one_dim = len(hourly_nc['rlat']) * len(hourly_nc['rlon'])
+    variables = list(hourly_nc.keys())
+    if 'rotated_pole' in variables:
+        variables.remove('rotated_pole')
+    temp_ts = hourly_nc['time'].to_series().reset_index(drop=True)
     temp_df = pd.DataFrame(temp_ts)
     temp_df.rename(columns={'time': 'Datetime'}, inplace=True)
     for v in variables:
-        flat_variable_array = daily_nc[v].to_numpy().reshape(len(daily_nc['time']), one_dim) # all values of a given variable
-        subset = np.take(flat_variable_array, cells, 1) # select variable values that overlaid with the target subbasin (during the entire study period)
-        for timestep in range(len(temp_ts)):
-            all_cells_values = subset[timestep]
-            variable_value = 0
-            for cell_index in range(len(cells)):
-                increment = all_cells_values[cell_index] * weights[cell_index]
-                if np.isnan(increment):
-                    variable_value = variable_value + 0
-                else:
-                    variable_value = variable_value + increment
-            temp_df.loc[timestep, v] = variable_value
+        if hourly_nc[v].shape != (len(hourly_nc['time']), len(hourly_nc['rlat']), len(hourly_nc['rlon'])):
+            continue
+        else:
+            flat_variable_array = hourly_nc[v].to_numpy().reshape(len(hourly_nc['time']), one_dim) # all values of a given variable
+            subset = np.take(flat_variable_array, cells, 1) # select variable values that overlaid with the target subbasin (during the entire study period)
+            for timestep in range(len(temp_ts)):
+                all_cells_values = subset[timestep]
+                variable_value = 0
+                for cell_index in range(len(cells)):
+                    increment = all_cells_values[cell_index] * weights[cell_index]
+                    if np.isnan(increment):
+                        variable_value = variable_value + 0
+                    else:
+                        variable_value = variable_value + increment
+                temp_df.loc[timestep, v] = variable_value
     basin_csv = basin_id + '.csv'
     csv_path = Path(forcingcsv_dir / basin_csv)
     if csv_path.is_file():     
@@ -116,7 +124,7 @@ def load_one_day_to_csv(basin_id: str, nc_filename: str, cells: tuple, weights: 
 
 
 def clear():
-    load_one_day_to_csv.cache_clear()
+    load_forcings_to_csv.cache_clear()
 
 
 def wrapper(basin_id: str):
@@ -124,21 +132,27 @@ def wrapper(basin_id: str):
 
     # subset the rdrs data based on the selected date period
     all_rdrs_files = sorted(os.listdir(data_root / 'rdrs_downloads'))
-    for idx, filename in enumerate(all_rdrs_files, 0):
-        if filename.startswith(start_date.replace('-', '')):
-            start_date_index = idx
-        if filename.startswith(end_date.replace('-', '')):
-            end_date_index = idx
-    rdrs_files = all_rdrs_files[start_date_index: end_date_index+1]
-
-    for nc_file in rdrs_files:
-        load_one_day_to_csv(basin_id, nc_file, basin_cells, basin_weights)
+    
+    # check if the netcdfs are raw CaSPAr downaloads or merged
+    if len(all_rdrs_files) == 1:
+        load_forcings_to_csv(basin_id, all_rdrs_files[0], basin_cells, basin_weights, merged_file = True)
         clear()
+    else:
+        for idx, filename in enumerate(all_rdrs_files, 0):
+            if filename.startswith(start_date.replace('-', '')):
+                start_date_index = idx
+            if filename.startswith(end_date.replace('-', '')):
+                end_date_index = idx
+        rdrs_files = all_rdrs_files[start_date_index: end_date_index+1]
+
+        for nc_file in rdrs_files:
+            load_forcings_to_csv(basin_id, nc_file, basin_cells, basin_weights, merged_file = False)
+            clear()
 
 
 if not repeated_experiment:
     print("Calculating dynamic forcings for each subbasin, be patient...")
-    with mp.Pool(processes = 3) as p:
+    with mp.Pool(processes = 16) as p:
         max_ = len(all_ids)
         with tqdm(total = max_) as pbar:
             for _ in p.imap_unordered(wrapper, all_ids):

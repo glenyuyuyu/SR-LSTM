@@ -19,13 +19,15 @@ sys.argv += ["--save_forcing"]
 # Arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("--watershed", type = str, required=True)
-parser.add_argument("--gauge_lat", type = str, required=True)
-parser.add_argument("--gauge_lon", type = str, required=True)
+parser.add_argument("--gauge_lat", type = str)
+parser.add_argument("--gauge_lon", type = str)
+parser.add_argument("--predictor_name", type = str, default = 'exp0')
 parser.add_argument("--experiment", type = str, default = 'default')
 parser.add_argument("--start_date", type = str, required=True)
 parser.add_argument("--end_date", type = str, required=True)
 parser.add_argument("--time_shift", type = str, default= '-5')
 parser.add_argument("--save_forcing", action='store_true')
+parser.add_argument("--routing_provided", action='store_true')
 args = parser.parse_args()
 
 project_root = Path(os.getcwd())
@@ -62,7 +64,7 @@ forcing2ts.config_training()
 # Run the LSTM
 os.chdir(os.getcwd() + '/model')
 os.system("nh-schedule-runs evaluate --directory trained_model --runs-per-gpu 5 --gpu-ids 0 1")
-os.system("nh-results-ensemble --run-dirs trained_model/exp0* --output-dir trained_model")
+os.system(f"nh-results-ensemble --run-dirs trained_model/{args.predictor_name}* --output-dir trained_model")
 os.system(f"python ../scripts/ensemble2netcdf.py trained_model/test_ensemble_results.p trained_model/test_ensemble_results.nc {args.watershed}")
 os.chdir(project_root)
 

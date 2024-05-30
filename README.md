@@ -17,10 +17,11 @@ This example of SR-LSTM only works on the following modules:
         - `landcover/` -- Landcover data ([NALCMS](http://www.cec.org/north-american-environmental-atlas/land-cover-30m-2020/))
         - `soil/` -- Soil data ([GSDE](http://globalchange.bnu.edu.cn/research/soilw) netCDF files (BD, CLAY, GRAV, OC, SAND, SILT))
     - `rdrs_downloads/` -- Folder that contains the gridded RDRS forcing data
+    - `routing_networks` -- Folder that will contain the BasinMaker-created routing network files
 - `model` 
     - `time_series/` -- Folder that will contain the netCDF files with forcings and discharge
     - `attributes/` -- Folder that will contain the CSV files with static attributes
-    - `basins/` -- Folder that will contain basin-IDs txtfile
+    - `basins/` -- Folder that will contain basin-IDs txtfile `train_basins.txt`
     - `trained_model` -- Folder that contains the trained LSTM lumped model files
 - `raven` -- Folder that contains the Raven files
 - `results` -- Folder that will contain the simulation results
@@ -32,7 +33,7 @@ This example of SR-LSTM only works on the following modules:
 1. Create a virtual environment in Anaconda3 using the provided `srlstm_environment.yml`
 2. Download the RDRS v2.1 forcings from CaSPAr and place them in `data/rdrs_downloads/`
 3. Download the gridded static attribute data and place them in corresponding folder under `data/gridded/` and `basinmaker/`
-4. Place streamflow observation CSVs in `data/discharge_obs/`
+4. Place streamflow observation CSVs in `data/discharge_obs/`, if routing network is provided, rename the folder as `*gaugeID_routing` and place it in `data/routing_networks`
 5. Place validated NeuralHydrology LSTM model files in `model/trained_model/`
 6. Create a txtfile named as`train_basins.txt` which contains the IDs of basins used to train the LSTM model, and place it in `model/basins/`
 7. Edit the input parameters in `scripts/run.py`, and run the script to start the simulation

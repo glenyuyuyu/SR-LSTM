@@ -47,7 +47,7 @@ class SubBasin:
         for file in os.listdir(project_root / f'data/{basin_id}_{exp_name}'):
             if 'catchment_without_merging_lakes' in file:
                 subbasins_shp_path = Path(project_root / f'data/{basin_id}_{exp_name}' / file)
-            if 'obs_gauges' in file:
+            if 'obs_gauges' in file or 'poi' in file:
                 gauge_shp_exist = True
                 gauge_shp_path = Path(project_root / f'data/{basin_id}_{exp_name}' / file)
         subbasins_shp = gpd.read_file(subbasins_shp_path)
