@@ -97,22 +97,33 @@ def load_forcings_to_csv(basin_id: str, nc_filename: str, cells: tuple, weights:
     temp_ts = hourly_nc['time'].to_series().reset_index(drop=True)
     temp_df = pd.DataFrame(temp_ts)
     temp_df.rename(columns={'time': 'Datetime'}, inplace=True)
-    for v in variables:
+
+    # Define the function to compute the increment from each cell*weight
+    def compute_increment(cell_index, all_cells_values, weights):
+        increment = all_cells_values[cell_index] * weights[cell_index]
+        return increment if not np.isnan(increment) else 0
+
+    # Define a function to compute the variable_value for a given timestep
+    def compute_variable_value(timestep, subset, weights):
+        all_cells_values = subset[timestep]
+        increments = map(lambda cell_index: compute_increment(cell_index, all_cells_values, weights), range(len(cells)))
+        return sum(increments)
+
+    # Define a function to process each variable
+    def process_variable(v):
         if hourly_nc[v].shape != (len(hourly_nc['time']), len(hourly_nc['rlat']), len(hourly_nc['rlon'])):
-            continue
-        else:
-            flat_variable_array = hourly_nc[v].to_numpy().reshape(len(hourly_nc['time']), one_dim) # all values of a given variable
-            subset = np.take(flat_variable_array, cells, 1) # select variable values that overlaid with the target subbasin (during the entire study period)
-            for timestep in range(len(temp_ts)):
-                all_cells_values = subset[timestep]
-                variable_value = 0
-                for cell_index in range(len(cells)):
-                    increment = all_cells_values[cell_index] * weights[cell_index]
-                    if np.isnan(increment):
-                        variable_value = variable_value + 0
-                    else:
-                        variable_value = variable_value + increment
-                temp_df.loc[timestep, v] = variable_value
+            return None
+        flat_variable_array = hourly_nc[v].to_numpy().reshape(len(hourly_nc['time']), one_dim)
+        subset = np.take(flat_variable_array, cells, 1)
+        variable_values = list(map(lambda timestep: compute_variable_value(timestep, subset, weights), range(len(temp_ts))))
+        return variable_values
+    
+    # Apply the process_variable function to each variable and store results in a DataFrame
+    results = {v: process_variable(v) for v in variables if process_variable(v) is not None}
+    for v, values in results.items():
+        temp_df[v] = values
+    
+    # Save the dataframe to CSV
     basin_csv = basin_id + '.csv'
     csv_path = Path(forcingcsv_dir / basin_csv)
     if csv_path.is_file():     
@@ -158,6 +169,7 @@ if not repeated_experiment:
             for _ in p.imap_unordered(wrapper, all_ids):
                 pbar.update()
 
+    
 
     # time shifting the forcing data CSVs
     lf = os.listdir(forcingcsv_dir)
